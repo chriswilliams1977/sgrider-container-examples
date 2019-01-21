@@ -1,0 +1,12 @@
+#Get Go base image
+FROM golang:latest 
+#Create /app dir in container
+RUN mkdir /app 
+#add contents of local dir to app dir on container
+ADD . /app/ 
+#set working directory in container
+WORKDIR /app 
+#build go binary
+RUN go build -o main . 
+#run go program binary
+CMD ["/app/main"]

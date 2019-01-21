@@ -1,0 +1,12 @@
+version: '3'
+#type of container
+services: 
+  redis-server: 
+    image: 'redis'
+  node-app:
+    restart: on-failure
+    build: .
+    ports:
+      #array of ports
+      #port local to port on container
+      - "4001:8081"
